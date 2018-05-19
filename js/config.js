@@ -1,0 +1,14 @@
+var HttpRequest = require("nebulas").HttpRequest;
+var Neb = require("nebulas").Neb;
+var Account = require("nebulas").Account;
+var Buffer = require("nebulas").Buffer;
+var Transaction = require("nebulas").Transaction;
+var Unit = require("nebulas").Unit;
+var neb = new Neb();
+window.MainNet = "https://mainnet.nebulas.io";
+window.TestNet = "https://testnet.nebulas.io";
+window.MainNet_chainId = 1;
+window.TestNet_chanId = 1001;
+window.TestNet_contract = "n1zsFoa4cKeyS3LFABGj4MU5YDAT1pzk2Ew";
+window.MainNet_contract = "n1zsFoa4cKeyS3LFABGj4MU5YDAT1pzk2Ew";
+neb.setRequest(new HttpRequest(MainNet));

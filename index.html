@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基于星云的信用招聘平台</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css?v=1.0" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-select.min.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="container main_container">
+        <nav class="navbar navbar-light bg-light top">
+            <div class="img logo_rotate">
+                <img src="img/logo.jpg" alt="" width="200px">
+            </div>
+            <div class="noExtension" id="noExtension">
+                <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>NOTE: Please install
+                <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>
+            </div>
+            <div class="top_beta">
+                 基于<a target="_blank" href="https://nebulas.io/">星云链(Nebulas)</a> 的信用招聘平台
+            </div>
+        </nav>
+
+
+
+        <form class="login_from">
+            <div class="form-group col-xs-12" style="padding-left: 0px;">
+                <div id="userInfo" style="display: none">
+                    <span class="address_title"> 钱包地址：</span>
+                    <span id="uaerAddress"></span>
+                    <span class="loginout" id="btn_loginout">登录其他账号</span>
+                </div>
+
+
+                <div class=" col-xs-9" id="address_panel">
+                    <input type="text" class="form-control" style="display: inline-block" id="address" value="" placeholder="使用您的钱宝地址登录系统，就可以发布职位了！ ">
+                </div>
+                <button type="button" class="btn btn-primary" id="btn_login" style="float: left;">现在登录</button>
+            </div>
+
+            <div class="form-group col-xs-2 " style="text-align: right;position: absolute;right: 0;bottom: 7px;">
+
+                <a href="javascript:void(0)" id="addRaise" class="btn btn-info" title="发布职位" role="button">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </a>
+            </div>
+
+        </form>
+        <ol class="breadcrumb" style="background-color: #efebe7">
+            <li class="active">首页</li>
+            <li>岗位列表</li>
+        </ol>
+
+        <div id="main">
+            <div id="addPanel">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">职位名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" value="区块链工程师" class="form-control" maxlength="20" id="title" placeholder="如：区块链工程师，Java开发工程师">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark" class="col-sm-2 control-label">职位描述</label>
+                        <div class="col-sm-10">
+                            <textarea style="resize: none"  class="form-control" id="desc" maxlength="500" placeholder="填写您招聘的职位描述" rows="8">五险一金,股票期权,年终奖,带薪年假</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="raiseCount" class="col-sm-2 control-label">工作城市</label>
+                        <div class="col-sm-10">
+                            <select id="city" class="selectpicker" data-live-search="true" >
+                                <option value="广州"selected >广州</option>
+                                <option value="深圳">深圳</option>
+                                <option value="北京">北京</option>
+                                <option value="上海">上海</option>
+                                <option value="杭州">杭州</option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark" class="col-sm-2 control-label">学历要求</label>
+                        <div class="col-sm-10">
+                            <select id="education" class="selectpicker" data-live-search="true" >
+                                    <option value="中专"  >中专</option>
+                                    <option value="大专">大专</option>
+                                    <option value="本科" selected>本科</option>
+                                    <option value="研究生">研究生</option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="remark" class="col-sm-2 control-label">薪资水平</label>
+                        <div class="col-sm-10">
+                                <select id="salary" class="selectpicker" data-live-search="true" >
+                                        <option value="5～10k"  >5～10k</option>
+                                        <option value="10～15k">10～15k</option>
+                                        <option value="15~25k"selected>15~25k</option>
+                                        <option value=">25k">>25k</option>
+                                </select> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="alert alert-warning col-sm-offset-2 col-sm-8" role="alert" style="display: none" id="addError"></div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-primary" id="btn_submit">提交</button>
+                            <button type="button" class="btn btn-primary" id="btn_cancel">取消</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+            <div id="addDonations">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="addDonations_address" class="col-sm-2 control-label">招聘人地址</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled id="addDonations_address" value="">
+                            <input type="hidden" disabled id="addDonations_id" valuef="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addDonations_title" class="col-sm-2 control-label">岗位</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" disabled id="addDonations_title" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addDonations_raiseCount" class="col-sm-2 control-label">聘金(NAS)： <span>数量给的越多，越有机会得到面试机会</span></label>
+                        <div class="col-sm-10">
+                            <input type="number" min="0" style="width: 100px" class="form-control" id="addDonations_raiseCount" value="0.00001" placeholder="NAS">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="alert alert-warning col-sm-offset-2 col-sm-8" style="display: none" role="alert" id="addDonations_addError"></div>
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-primary" id="btn_addDonations_submit">提交</button>
+                            <button type="button" class="btn btn-primary" id="btn_addDonations_cancel">取消</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+
+            <div id="allDataPanel">
+                <div class="panel panel-default" id="isNotdate">
+                    <div class="panel-body" style="text-align: center">
+                        链上还没有人发布众筹信息！您可以尝试自己发布一个！
+                    </div>
+                </div>
+              
+                <div id="allDataPanel_data">
+                </div>
+
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2018  NasJobPost All Rights Reserved.
+        </div>
+
+    </div>
+    <div class="modal fade" id="loadingModal">
+        <div class="col-sm-4" style="width: 360px;height:20px; z-index: 20000;text-align: center; margin: auto;position: absolute;top: 0;left: 0;bottom: 0;right: 0;">
+
+            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                aria-valuemax="100" style="width: 100%">
+                <span class="sr-only">20% Complete</span>
+            </div>
+            <h3 style="color: white;font-weight: bold;">Loading ...</h3>
+        </div>
+    </div>
+
+    
+
+
+    <script src="js/jquery-3.3.1.min.js?v=1.0"></script>
+    <script src="js/nebPay.js?v=1.0"></script>
+    <script src="bootstrap/js/bootstrap.min.js?v=1.0"></script>
+    <script src="bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="bootstrap/js/defaults-zh_CN.min.js"></script>
+    <script src="js/nebulas.js?v=1.0"></script>
+    <script src="js/alert_plugin.js?v=1.0"></script>
+    <script src="js/app.js?v=1"></script>
+    
+
+    <script>
+        $(function () {
+            viewModel.page = 0;
+            Init();
+        });
+    </script>
+</body>
+
+</html>

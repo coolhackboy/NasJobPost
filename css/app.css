@@ -1,0 +1,183 @@
+#addPanel {
+    display: none
+}
+
+body {
+    font-weight: normal;
+    font-size: 14px;
+    font-family: "Microsoft JhengHei", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 20px;
+    color: #686a6c;
+    text-align: left;
+}
+
+.title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    background: transparent;
+    color: #686a6c;
+    text-decoration: none;
+    display: block;
+    font-weight: 700
+}
+
+.alldataImage {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.glyphicon-yen,
+.donationsCount,
+.amountCount {
+    color: #ffa024;
+    font-weight: bold;
+    font-size: 20px
+}
+
+#isNotdate,
+#addRaise,
+#addDonations,
+#address_panel,
+#btn_login,
+#noExtension {
+    display: none;
+}
+
+#noExtension {
+    text-align: right;
+    font-weight: bold;
+}
+
+#noExtension .glyphicon {
+    color: #f5f01e;
+    font-size: 38px;
+    margin-right: 10px;
+}
+
+.mydonations,
+.myRaise,
+.loginout {
+    color: #17a1dd;
+    cursor: pointer;
+}
+
+.donations,
+.collection,.showDetail {
+    cursor: pointer;
+}
+
+.address_title {
+    color: #101010;
+    font-weight: bold;
+}
+@media (max-width: 992px) {
+    .address_title {
+        display: block
+    }
+}
+
+@media (max-width: 768px) {
+    #uaerAddress {
+        display: block
+    }
+    .data_addtitle {
+        display: block
+    }
+}
+
+@media (max-width: 600px) {
+.logo_rotate{
+    float: inherit 
+}
+#noExtension{
+    text-align: left
+}
+    .data_add {
+        display: block
+    }
+}
+@media (min-width: 600px) {
+    .logo_rotate{
+        float: left 
+    }
+    .top_beta{
+
+        position: absolute;
+        }
+    }
+.uaerAddress {
+    color: #a59e9e;
+}
+
+#userInfo {
+    line-height: 34px
+}
+
+.data_time {
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.showDetail {
+    margin-left: 10px;
+}
+
+.isComplete {
+    background: url(../img/Complete.jpg) no-repeat right top;
+    background-position: 100% 10%;
+}
+
+.top {
+    /* background: url(../img/logo.png) no-repeat left top; */
+    margin-bottom: 10px;
+}
+
+.main_container {
+    margin-top: 5px;
+}
+
+.login_from {
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+.login_from .form-group
+{
+    margin-bottom: 0px
+}
+.breadcrumb {
+    margin-bottom: 10px;
+}
+
+.top_beta {
+    font-size: 19px;
+    color: #00b38a;
+    right: 0;
+    bottom: -5px;
+    left: 260px;
+}
+
+.top_beta .beta {
+    color: #0c6d06;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo_rotate {
+    width: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    /*  褰撳姩鐢荤粨鏉熸椂锛岃<div>鍏冪礌淇濈暀涓婁竴涓叧閿抚鐨勬牱寮忓€� */
+}
+
+body {
+    /* background-color: rgb(247, 247, 247); */
+    background-color: rgb(230, 222, 226);
+
+}
+
+.copyright {
+    margin-bottom: 10px;
+}
