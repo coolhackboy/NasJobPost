@@ -2,7 +2,7 @@
 
 var viewModel = {
     userAddress: "",
-    dappAddress: "n21hEQpgAHBVJv6M53pWdGzev8uc7sizha6",
+    dappAddress: "n1iMiPmhgbihT1w6gkUyXa2YWWaXm9surKG",
     nebulasUrl:"https://mainnet.nebulas.io",
     // nebulasUrl:"https://testnet.nebulas.io",
     neb: null,
