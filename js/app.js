@@ -342,7 +342,7 @@ function GetAllDataHtml(model) {
 
     if (model.status === 1) {
         if (viewModel.page === 0) {
-            raise = '<span class="" aria-hidden="true">众筹已完成</span>';
+            raise = '<span class="" aria-hidden="true">岗位已完成</span>';
         }
 
     } else if (model.status === 2) {
@@ -428,7 +428,7 @@ function addlistener(resp) {
     console.log("response of push: " + JSON.stringify(resp));
     if (resp.txhash) {
         $.alert_plugin.alert({
-            message: "众筹已经发送都链上，请稍后刷新页面查看！"
+            message: "岗位已经发送都链上，请稍后刷新页面查看！"
         });
         viewModel.intervalQuery = setInterval(function () {
             funcIntervalQuery(GetALL);
